@@ -40,13 +40,13 @@ export function Cart({
 
   const lateNightFee = isLateNight() ? 10 : 0;
 
-  // Auto-apply SAVE5 coupon when cart value > ₹100
+  // Auto-apply SAVE5 coupon only for orders above ₹100
   useEffect(() => {
     const checkAndApplySAVE5 = async () => {
       // Don't auto-apply if user manually applied a different coupon
       if (appliedCoupon && appliedCoupon.code !== 'SAVE5') return;
 
-      if (subtotal > 100) {
+      if (subtotal >= 100) {
         try {
           const { data, error } = await supabase
             .from('coupons')
@@ -55,7 +55,7 @@ export function Cart({
             .eq('is_active', true)
             .single();
 
-          if (data && !error && subtotal >= data.min_order_value) {
+          if (data && !error) {
             setAppliedCoupon(data);
             if (onCouponApplied) {
               const discountAmount =
@@ -69,7 +69,7 @@ export function Cart({
           console.error('Error fetching SAVE5 coupon:', error);
         }
       } else {
-        // Remove SAVE5 coupon if cart value drops below ₹100
+        // Remove SAVE5 coupon if cart is below ₹100 or empty
         if (appliedCoupon && appliedCoupon.code === 'SAVE5') {
           setAppliedCoupon(null);
           if (onCouponApplied) {
@@ -85,9 +85,7 @@ export function Cart({
   const calculateDiscount = () => {
     if (!appliedCoupon) return 0;
 
-    // Check minimum order value
-    if (subtotal < appliedCoupon.min_order_value) return 0;
-
+    // Apply discount regardless of order value
     if (appliedCoupon.discount_type === 'percentage') {
       return (subtotal * appliedCoupon.discount_value) / 100;
     }
@@ -114,11 +112,6 @@ export function Cart({
 
       if (error || !data) {
         setCouponError('Invalid or inactive coupon code');
-        return;
-      }
-
-      if (subtotal < data.min_order_value) {
-        setCouponError(`Minimum order value ₹${data.min_order_value} required`);
         return;
       }
 
