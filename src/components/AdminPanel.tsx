@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Package, Clock, CheckCircle, XCircle, Plus, ShoppingBag, ListOrdered, Tag } from 'lucide-react';
+import { Package, Clock, CheckCircle, XCircle, Plus, ShoppingBag, ListOrdered, Tag, BarChart3 } from 'lucide-react';
 import { supabase, Order, OrderItem, Product } from '../lib/supabase';
 import { cn } from '../lib/utils';
 import { AddProductModal } from './AddProductModal';
 import { CouponManagement } from './CouponManagement';
+import { Analytics } from './Analytics';
 
 interface OrderWithItems extends Order {
   items?: OrderItem[];
@@ -14,7 +15,7 @@ export function AdminPanel() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<string>('all');
-  const [activeTab, setActiveTab] = useState<'orders' | 'products' | 'coupons'>('orders');
+  const [activeTab, setActiveTab] = useState<'analytics' | 'orders' | 'products' | 'coupons'>('analytics');
   const [isAddProductOpen, setIsAddProductOpen] = useState(false);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
 
@@ -143,6 +144,19 @@ export function AdminPanel() {
       {/* Tab Navigation */}
       <div className="flex gap-2 sm:gap-3 mb-6 sm:mb-8 overflow-x-auto pb-2 -mx-3 px-3 sm:mx-0 sm:px-0">
         <button
+          onClick={() => setActiveTab('analytics')}
+          className={cn(
+            'px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-medium transition-all duration-300 whitespace-nowrap flex-shrink-0',
+            'border backdrop-blur-sm active:scale-95 sm:hover:scale-105 flex items-center gap-2 text-sm sm:text-base touch-manipulation',
+            activeTab === 'analytics'
+              ? 'bg-white text-black border-gray-300 shadow-lg shadow-white/25'
+              : 'bg-white/5 text-gray-400 border-white/10 hover:bg-white/10'
+          )}
+        >
+          <BarChart3 size={18} className="sm:w-5 sm:h-5" />
+          <span>Analytics</span>
+        </button>
+        <button
           onClick={() => setActiveTab('orders')}
           className={cn(
             'px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-medium transition-all duration-300 whitespace-nowrap flex-shrink-0',
@@ -185,6 +199,9 @@ export function AdminPanel() {
           <span className="sm:hidden">Coupons</span>
         </button>
       </div>
+
+      {/* Analytics Tab */}
+      {activeTab === 'analytics' && <Analytics />}
 
       {/* Orders Tab */}
       {activeTab === 'orders' && (
