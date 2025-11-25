@@ -159,48 +159,48 @@ export function Cart({
       />
       
       {/* Cart Sidebar */}
-      <div className="fixed right-0 top-0 h-full w-full max-w-md z-50 flex flex-col animate-slide-in">
+      <div className="fixed right-0 top-0 h-full w-full sm:max-w-md z-50 flex flex-col animate-slide-in">
         <div className="h-full flex flex-col glass-effect border-l border-white/10">
           {/* Header */}
-          <div className="flex items-center justify-between p-6 border-b border-white/10">
+          <div className="flex items-center justify-between p-4 sm:p-6 border-b border-white/10">
             <div>
-              <h2 className="text-2xl font-bold text-white">Your Cart</h2>
-              <p className="text-sm text-gray-400 mt-1">
+              <h2 className="text-xl sm:text-2xl font-bold text-white">Your Cart</h2>
+              <p className="text-xs sm:text-sm text-gray-400 mt-1">
                 {items.length} {items.length === 1 ? 'item' : 'items'}
               </p>
             </div>
             <button
               onClick={onClose}
               className={cn(
-                "p-2.5 rounded-xl transition-all duration-300",
+                "p-2 sm:p-2.5 rounded-xl transition-all duration-300 touch-manipulation",
                 "bg-white/5 hover:bg-white/10 border border-white/10",
-                "hover:scale-110 hover:rotate-90"
+                "active:scale-95 sm:hover:scale-110 sm:hover:rotate-90"
               )}
             >
-              <X size={20} className="text-gray-400" />
+              <X size={18} className="text-gray-400 sm:w-5 sm:h-5" />
             </button>
           </div>
 
           {/* Cart Items */}
-          <div className="flex-1 overflow-y-auto p-6">
+          <div className="flex-1 overflow-y-auto p-4 sm:p-6">
             {items.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full">
                 <div className="relative mb-6">
                   <div className="absolute inset-0 bg-emerald-500/20 blur-3xl animate-pulse"></div>
-                  <div className="relative bg-white/5 p-8 rounded-full border border-white/10">
-                    <ShoppingBag size={64} className="text-gray-500" />
+                  <div className="relative bg-white/5 p-6 sm:p-8 rounded-full border border-white/10">
+                    <ShoppingBag size={48} className="text-gray-500 sm:w-16 sm:h-16" />
                   </div>
                 </div>
-                <p className="text-lg text-gray-400 font-medium">Your cart is empty</p>
-                <p className="text-sm text-gray-500 mt-2">Add some snacks to get started</p>
+                <p className="text-base sm:text-lg text-gray-400 font-medium">Your cart is empty</p>
+                <p className="text-xs sm:text-sm text-gray-500 mt-2">Add some snacks to get started</p>
               </div>
             ) : (
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {items.map((item, index) => (
                   <div
                     key={item.product.id}
                     className={cn(
-                      "group relative rounded-2xl p-4",
+                      "group relative rounded-xl sm:rounded-2xl p-3 sm:p-4",
                       "bg-white/5 border border-white/10",
                       "hover:bg-white/[0.07] hover:border-emerald-500/30",
                       "transition-all duration-300 animate-scale-in"
@@ -212,9 +212,9 @@ export function Cart({
                       <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-blue-500/10 rounded-2xl blur-xl"></div>
                     </div>
 
-                    <div className="relative flex gap-4">
+                    <div className="relative flex gap-3 sm:gap-4">
                       {/* Product Image */}
-                      <div className="relative w-20 h-20 rounded-xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 flex-shrink-0">
+                      <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-lg sm:rounded-xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 flex-shrink-0">
                         <img
                           src={item.product.image_url}
                           alt={item.product.name}
@@ -224,16 +224,16 @@ export function Cart({
 
                       {/* Product Info */}
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-white mb-1 truncate group-hover:text-emerald-400 transition-colors">
+                        <h3 className="text-sm sm:text-base font-semibold text-white mb-1 truncate group-hover:text-emerald-400 transition-colors">
                           {item.product.name}
                         </h3>
-                        <p className="text-sm text-gray-400 mb-3">
+                        <p className="text-xs sm:text-sm text-gray-400 mb-2 sm:mb-3">
                           ₹{item.product.price.toFixed(2)} each
                         </p>
 
                         {/* Quantity Controls */}
-                        <div className="flex items-center gap-3">
-                          <div className="flex items-center gap-2 bg-white/5 rounded-lg border border-white/10 p-1">
+                        <div className="flex items-center gap-2 sm:gap-3">
+                          <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 rounded-lg border border-white/10 p-1">
                             <button
                               onClick={() =>
                                 onUpdateQuantity(
@@ -241,11 +241,11 @@ export function Cart({
                                   Math.max(0, item.quantity - 1)
                                 )
                               }
-                              className="p-1.5 rounded-md hover:bg-white/10 transition-colors"
+                              className="p-1.5 rounded-md hover:bg-white/10 transition-colors active:scale-95 touch-manipulation"
                             >
                               <Minus size={14} className="text-gray-400" />
                             </button>
-                            <span className="w-8 text-center font-semibold text-white text-sm">
+                            <span className="w-7 sm:w-8 text-center font-semibold text-white text-sm">
                               {item.quantity}
                             </span>
                             <button
@@ -256,7 +256,7 @@ export function Cart({
                                 )
                               }
                               disabled={item.quantity >= item.product.stock}
-                              className="p-1.5 rounded-md hover:bg-white/10 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                              className="p-1.5 rounded-md hover:bg-white/10 transition-colors disabled:opacity-50 disabled:cursor-not-allowed active:scale-95 touch-manipulation"
                             >
                               <Plus size={14} className="text-gray-400" />
                             </button>
@@ -265,18 +265,18 @@ export function Cart({
                           <button
                             onClick={() => onRemoveItem(item.product.id)}
                             className={cn(
-                              "ml-auto p-2 rounded-lg transition-all duration-300",
+                              "ml-auto p-1.5 sm:p-2 rounded-lg transition-all duration-300 touch-manipulation",
                               "bg-red-500/10 hover:bg-red-500/20 border border-red-500/20",
-                              "hover:scale-110"
+                              "active:scale-95 sm:hover:scale-110"
                             )}
                           >
-                            <Trash2 size={16} className="text-red-400" />
+                            <Trash2 size={14} className="text-red-400 sm:w-4 sm:h-4" />
                           </button>
                         </div>
                       </div>
 
                       {/* Item Total */}
-                      <div className="font-bold text-white text-lg">
+                      <div className="font-bold text-white text-base sm:text-lg">
                         ₹{(item.product.price * item.quantity).toFixed(2)}
                       </div>
                     </div>
@@ -288,13 +288,13 @@ export function Cart({
 
           {/* Footer */}
           {items.length > 0 && (
-            <div className="border-t border-white/10 p-6 space-y-4 bg-black/20">
+            <div className="border-t border-white/10 p-4 sm:p-6 space-y-3 sm:space-y-4 bg-black/20">
               {/* Show discount info if SAVE5 is applied */}
               {appliedCoupon && (
-                <div className="flex items-center gap-2 p-3 bg-emerald-500/10 border border-emerald-500/30 rounded-xl">
-                  <CheckCircle2 size={18} className="text-emerald-400" />
+                <div className="flex items-center gap-2 p-2.5 sm:p-3 bg-emerald-500/10 border border-emerald-500/30 rounded-lg sm:rounded-xl">
+                  <CheckCircle2 size={16} className="text-emerald-400 sm:w-[18px] sm:h-[18px]" />
                   <div className="flex-1">
-                    <p className="text-sm font-semibold text-emerald-400">{appliedCoupon.code} applied!</p>
+                    <p className="text-xs sm:text-sm font-semibold text-emerald-400">{appliedCoupon.code} applied!</p>
                     <p className="text-xs text-gray-400">{appliedCoupon.description}</p>
                   </div>
                 </div>
@@ -302,32 +302,32 @@ export function Cart({
 
               {/* Show late night fee notice */}
               {lateNightFee > 0 && (
-                <div className="flex items-center gap-2 p-3 bg-orange-500/10 border border-orange-500/30 rounded-xl">
+                <div className="flex items-center gap-2 p-2.5 sm:p-3 bg-orange-500/10 border border-orange-500/30 rounded-lg sm:rounded-xl">
                   <div className="flex-1">
-                    <p className="text-sm font-semibold text-orange-400">Late Night Order</p>
+                    <p className="text-xs sm:text-sm font-semibold text-orange-400">Late Night Order</p>
                     <p className="text-xs text-gray-400">₹10 fee applies for orders after 12:00 AM</p>
                   </div>
                 </div>
               )}
 
               {/* Coupon Input Section */}
-              <div className="space-y-3">
-                <label className="flex items-center gap-2 text-sm font-medium text-gray-300">
-                  <Tag size={16} className="text-emerald-500" />
+              <div className="space-y-2 sm:space-y-3">
+                <label className="flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-300">
+                  <Tag size={14} className="text-emerald-500 sm:w-4 sm:h-4" />
                   Have a coupon code?
                 </label>
                 {appliedCoupon ? (
-                  <div className="flex items-center justify-between p-3 bg-emerald-500/10 border border-emerald-500/30 rounded-xl">
+                  <div className="flex items-center justify-between p-2.5 sm:p-3 bg-emerald-500/10 border border-emerald-500/30 rounded-lg sm:rounded-xl">
                     <div className="flex items-center gap-2">
-                      <CheckCircle2 size={18} className="text-emerald-400" />
+                      <CheckCircle2 size={16} className="text-emerald-400 sm:w-[18px] sm:h-[18px]" />
                       <div>
-                        <p className="text-sm font-semibold text-emerald-400">{appliedCoupon.code}</p>
-                        <p className="text-xs text-gray-400">{appliedCoupon.description}</p>
+                        <p className="text-xs sm:text-sm font-semibold text-emerald-400">{appliedCoupon.code}</p>
+                        <p className="text-xs text-gray-400 line-clamp-1">{appliedCoupon.description}</p>
                       </div>
                     </div>
                     <button
                       onClick={handleRemoveCoupon}
-                      className="text-xs text-red-400 hover:text-red-300 font-medium"
+                      className="text-xs text-red-400 hover:text-red-300 font-medium touch-manipulation active:scale-95 flex-shrink-0"
                     >
                       Remove
                     </button>
@@ -345,8 +345,8 @@ export function Cart({
                         onKeyPress={(e) => e.key === 'Enter' && handleApplyManualCoupon()}
                         placeholder="Enter code"
                         className={cn(
-                          "flex-1 px-4 py-2.5 rounded-xl bg-white/5 border",
-                          "text-white placeholder:text-gray-500 uppercase",
+                          "flex-1 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg sm:rounded-xl bg-white/5 border",
+                          "text-sm sm:text-base text-white placeholder:text-gray-500 uppercase",
                           "focus:outline-none focus:ring-2 focus:ring-emerald-500/50",
                           "transition-all duration-300",
                           couponError ? "border-red-500/50" : "border-white/10"
@@ -355,9 +355,9 @@ export function Cart({
                       <button
                         onClick={handleApplyManualCoupon}
                         className={cn(
-                          "px-5 py-2.5 rounded-xl font-medium",
+                          "px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg sm:rounded-xl font-medium text-sm sm:text-base",
                           "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30",
-                          "hover:bg-emerald-500/30 transition-all duration-300"
+                          "hover:bg-emerald-500/30 transition-all duration-300 touch-manipulation active:scale-95"
                         )}
                       >
                         Apply
@@ -371,7 +371,7 @@ export function Cart({
               </div>
 
               {/* Price Breakdown */}
-              <div className="space-y-2 text-sm">
+              <div className="space-y-2 text-xs sm:text-sm">
                 <div className="flex justify-between text-gray-400">
                   <span>Subtotal:</span>
                   <span>₹{subtotal.toFixed(2)}</span>
@@ -390,7 +390,7 @@ export function Cart({
                 )}
               </div>
 
-              <div className="flex justify-between items-center text-xl border-t border-white/10 pt-4">
+              <div className="flex justify-between items-center text-lg sm:text-xl border-t border-white/10 pt-3 sm:pt-4">
                 <span className="text-gray-400 font-medium">Total:</span>
                 <span className="font-bold bg-gradient-to-r from-emerald-400 to-emerald-500 bg-clip-text text-transparent">
                   ₹{total.toFixed(2)}
@@ -400,12 +400,12 @@ export function Cart({
               <button
                 onClick={onCheckout}
                 className={cn(
-                  "w-full py-4 rounded-xl font-semibold text-white",
+                  "w-full py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-base text-white",
                   "bg-gradient-to-r from-emerald-500 to-emerald-600",
                   "hover:from-emerald-600 hover:to-emerald-700",
-                  "transition-all duration-300 hover:scale-[1.02]",
+                  "transition-all duration-300 active:scale-[0.98] sm:hover:scale-[1.02]",
                   "shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50",
-                  "relative overflow-hidden group"
+                  "relative overflow-hidden group touch-manipulation"
                 )}
               >
                 <span className="relative z-10">Proceed to Checkout</span>

@@ -50,28 +50,28 @@ export function CheckoutModal({
         className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 animate-fade-in"
         onClick={onClose}
       />
-      <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
-        <div className="glass-effect rounded-2xl shadow-2xl w-full max-w-md max-h-[90vh] overflow-y-auto border border-white/10 animate-scale-in">
-          <div className="flex items-center justify-between p-6 border-b border-white/10 sticky top-0 glass-effect">
-            <h2 className="text-2xl font-bold text-white">
+      <div className="fixed inset-0 flex items-center justify-center z-50 p-3 sm:p-4">
+        <div className="glass-effect rounded-xl sm:rounded-2xl shadow-2xl w-full max-w-md max-h-[90vh] overflow-y-auto border border-white/10 animate-scale-in">
+          <div className="flex items-center justify-between p-4 sm:p-6 border-b border-white/10 sticky top-0 glass-effect">
+            <h2 className="text-lg sm:text-2xl font-bold text-white">
               Complete Your Order
             </h2>
             <button
               onClick={onClose}
               className={cn(
-                "p-2.5 rounded-xl transition-all duration-300",
+                "p-2 sm:p-2.5 rounded-xl transition-all duration-300 touch-manipulation",
                 "bg-white/5 hover:bg-white/10 border border-white/10",
-                "hover:scale-110 hover:rotate-90"
+                "active:scale-95 sm:hover:scale-110 sm:hover:rotate-90"
               )}
             >
-              <X size={20} className="text-gray-400" />
+              <X size={18} className="text-gray-400 sm:w-5 sm:h-5" />
             </button>
           </div>
 
-          <form onSubmit={handleSubmit} className="p-6 space-y-5">
+          <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4 sm:space-y-5">
             <div>
-              <label className="flex items-center gap-2 text-sm font-medium text-gray-300 mb-2">
-                <User size={16} className="text-emerald-500" />
+              <label className="flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-300 mb-2">
+                <User size={14} className="text-emerald-500 sm:w-4 sm:h-4" />
                 Full Name *
               </label>
               <input
@@ -82,8 +82,8 @@ export function CheckoutModal({
                   setFormData({ ...formData, name: e.target.value })
                 }
                 className={cn(
-                  "w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10",
-                  "text-white placeholder:text-gray-500",
+                  "w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-white/5 border border-white/10",
+                  "text-sm sm:text-base text-white placeholder:text-gray-500",
                   "focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50",
                   "transition-all duration-300"
                 )}
@@ -92,8 +92,8 @@ export function CheckoutModal({
             </div>
 
             <div>
-              <label className="flex items-center gap-2 text-sm font-medium text-gray-300 mb-2">
-                <Mail size={16} className="text-emerald-500" />
+              <label className="flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-300 mb-2">
+                <Mail size={14} className="text-emerald-500 sm:w-4 sm:h-4" />
                 Email *
               </label>
               <input
@@ -104,8 +104,8 @@ export function CheckoutModal({
                   setFormData({ ...formData, email: e.target.value })
                 }
                 className={cn(
-                  "w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10",
-                  "text-white placeholder:text-gray-500",
+                  "w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-white/5 border border-white/10",
+                  "text-sm sm:text-base text-white placeholder:text-gray-500",
                   "focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50",
                   "transition-all duration-300"
                 )}
@@ -114,8 +114,8 @@ export function CheckoutModal({
             </div>
 
             <div>
-              <label className="flex items-center gap-2 text-sm font-medium text-gray-300 mb-2">
-                <Home size={16} className="text-emerald-500" />
+              <label className="flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-300 mb-2">
+                <Home size={14} className="text-emerald-500 sm:w-4 sm:h-4" />
                 Room Number *
               </label>
               <input
@@ -126,8 +126,8 @@ export function CheckoutModal({
                   setFormData({ ...formData, room: e.target.value })
                 }
                 className={cn(
-                  "w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10",
-                  "text-white placeholder:text-gray-500",
+                  "w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-white/5 border border-white/10",
+                  "text-sm sm:text-base text-white placeholder:text-gray-500",
                   "focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50",
                   "transition-all duration-300"
                 )}
@@ -136,8 +136,8 @@ export function CheckoutModal({
             </div>
 
             <div>
-              <label className="flex items-center gap-2 text-sm font-medium text-gray-300 mb-2">
-                <Phone size={16} className="text-emerald-500" />
+              <label className="flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-300 mb-2">
+                <Phone size={14} className="text-emerald-500 sm:w-4 sm:h-4" />
                 Phone Number *
               </label>
               <input
@@ -148,8 +148,8 @@ export function CheckoutModal({
                   setFormData({ ...formData, phone: e.target.value })
                 }
                 className={cn(
-                  "w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10",
-                  "text-white placeholder:text-gray-500",
+                  "w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-white/5 border border-white/10",
+                  "text-sm sm:text-base text-white placeholder:text-gray-500",
                   "focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50",
                   "transition-all duration-300"
                 )}
@@ -158,8 +158,8 @@ export function CheckoutModal({
             </div>
 
             <div>
-              <label className="flex items-center gap-2 text-sm font-medium text-gray-300 mb-2">
-                <MessageSquare size={16} className="text-emerald-500" />
+              <label className="flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-300 mb-2">
+                <MessageSquare size={14} className="text-emerald-500 sm:w-4 sm:h-4" />
                 Special Instructions (Optional)
               </label>
               <textarea
@@ -169,8 +169,8 @@ export function CheckoutModal({
                 }
                 rows={3}
                 className={cn(
-                  "w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10",
-                  "text-white placeholder:text-gray-500 resize-none",
+                  "w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-white/5 border border-white/10",
+                  "text-sm sm:text-base text-white placeholder:text-gray-500 resize-none",
                   "focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50",
                   "transition-all duration-300"
                 )}
@@ -178,10 +178,10 @@ export function CheckoutModal({
               />
             </div>
 
-            <div className="border-t border-white/10 pt-5 mt-5">
-              <div className="flex justify-between items-center mb-5">
-                <span className="text-lg font-semibold text-gray-300">Total Amount:</span>
-                <span className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-500 bg-clip-text text-transparent">
+            <div className="border-t border-white/10 pt-4 sm:pt-5 mt-4 sm:mt-5">
+              <div className="flex justify-between items-center mb-4 sm:mb-5">
+                <span className="text-base sm:text-lg font-semibold text-gray-300">Total Amount:</span>
+                <span className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-500 bg-clip-text text-transparent">
                   ₹{total.toFixed(2)}
                 </span>
               </div>
@@ -189,13 +189,13 @@ export function CheckoutModal({
                 type="submit"
                 disabled={isSubmitting}
                 className={cn(
-                  "w-full py-4 rounded-xl font-semibold text-white",
+                  "w-full py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-base text-white",
                   "bg-gradient-to-r from-emerald-500 to-emerald-600",
                   "hover:from-emerald-600 hover:to-emerald-700",
-                  "transition-all duration-300 hover:scale-[1.02]",
+                  "transition-all duration-300 active:scale-[0.98] sm:hover:scale-[1.02]",
                   "shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50",
-                  "relative overflow-hidden group",
-                  "disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100",
+                  "relative overflow-hidden group touch-manipulation",
+                  "disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:active:scale-100",
                   "flex items-center justify-center gap-3"
                 )}
               >

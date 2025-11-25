@@ -227,36 +227,36 @@ function App() {
       </div>
 
       <header className="sticky top-0 z-30 glass-effect border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-4 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4 animate-fade-in">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6">
+          <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2 sm:gap-4 animate-fade-in">
               <div className="relative">
                 <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-full"></div>
-                <div className="relative bg-gradient-to-br from-emerald-500 to-emerald-600 p-3 rounded-2xl">
-                  <Store className="text-white" size={28} />
+                <div className="relative bg-gradient-to-br from-emerald-500 to-emerald-600 p-2 sm:p-3 rounded-xl sm:rounded-2xl">
+                  <Store className="text-white" size={20} />
                 </div>
               </div>
-              <div>
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-white via-emerald-200 to-white bg-clip-text text-transparent">
+              <div className="min-w-0">
+                <h1 className="text-base sm:text-2xl font-bold bg-gradient-to-r from-white via-emerald-200 to-white bg-clip-text text-transparent truncate">
                   Hostel Snack Shop
                 </h1>
-                <p className="text-sm text-gray-400 flex items-center gap-1">
-                  <Sparkles size={12} className="text-emerald-500" />
-                  Order above ₹100 - Save 5%
+                <p className="text-xs sm:text-sm text-gray-400 flex items-center gap-1">
+                  <Sparkles size={10} className="text-emerald-500 flex-shrink-0" />
+                  <span className="truncate">Order above ₹100 - Save 5%</span>
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               {!isAdminView && !showMyOrders && (
                 <button
                   onClick={handleMyOrdersToggle}
                   className={cn(
-                    "flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium transition-all duration-300",
+                    "flex items-center gap-1 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-lg sm:rounded-xl font-medium transition-all duration-300 text-sm",
                     "bg-white/5 hover:bg-white/10 border border-white/10",
                     "backdrop-blur-sm hover:scale-105"
                   )}
                 >
-                  <Package size={18} />
+                  <Package size={16} className="sm:w-[18px] sm:h-[18px]" />
                   <span className="hidden sm:inline">My Orders</span>
                 </button>
               )}
@@ -276,12 +276,12 @@ function App() {
               <button
                 onClick={handleAdminToggle}
                 className={cn(
-                  "flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium transition-all duration-300",
+                  "flex items-center gap-1 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-lg sm:rounded-xl font-medium transition-all duration-300 text-sm",
                   "bg-white/5 hover:bg-white/10 border border-white/10",
                   "backdrop-blur-sm hover:scale-105"
                 )}
               >
-                <LayoutDashboard size={18} />
+                <LayoutDashboard size={16} className="sm:w-[18px] sm:h-[18px]" />
                 <span className="hidden sm:inline">
                   {isAdminView ? 'Shop' : 'Admin'}
                 </span>
@@ -290,16 +290,16 @@ function App() {
                 <button
                   onClick={() => setIsCartOpen(true)}
                   className={cn(
-                    "relative flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium",
+                    "relative flex items-center gap-1 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-lg sm:rounded-xl font-medium text-sm",
                     "bg-gradient-to-r from-emerald-500 to-emerald-600",
                     "hover:from-emerald-600 hover:to-emerald-700",
                     "transition-all duration-300 hover:scale-105 glow-hover"
                   )}
                 >
-                  <CartIcon size={18} />
+                  <CartIcon size={16} className="sm:w-[18px] sm:h-[18px]" />
                   <span className="hidden sm:inline">Cart</span>
                   {cartItemCount > 0 && (
-                    <span className="absolute -top-2 -right-2 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center animate-scale-in shadow-lg">
+                    <span className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold rounded-full h-5 w-5 sm:h-6 sm:w-6 flex items-center justify-center animate-scale-in shadow-lg">
                       {cartItemCount}
                     </span>
                   )}
@@ -310,7 +310,7 @@ function App() {
         </div>
       </header>
 
-      <main className="relative max-w-7xl mx-auto px-4 py-12">
+      <main className="relative max-w-7xl mx-auto px-3 sm:px-4 py-6 sm:py-12">
         {isAdminView ? (
           <>
             <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent animate-fade-in">
@@ -326,24 +326,24 @@ function App() {
           <UserOrders />
         ) : (
           <>
-            <div className="mb-12 animate-fade-in">
-              <h2 className="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-white via-emerald-200 to-white bg-clip-text text-transparent">
+            <div className="mb-6 sm:mb-12 animate-fade-in">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-3 bg-gradient-to-r from-white via-emerald-200 to-white bg-clip-text text-transparent">
                 Browse Our Products
               </h2>
-              <p className="text-lg text-gray-400">
+              <p className="text-sm sm:text-lg text-gray-400">
                 Fresh snacks and drinks delivered to your room
               </p>
               
               {/* Promotional Banner */}
-              <div className="mt-6">
-                <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-emerald-500/20 via-emerald-400/20 to-emerald-500/20 border border-emerald-500/30 p-4">
+              <div className="mt-4 sm:mt-6">
+                <div className="relative overflow-hidden rounded-lg sm:rounded-xl bg-gradient-to-r from-emerald-500/20 via-emerald-400/20 to-emerald-500/20 border border-emerald-500/30 p-3 sm:p-4">
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer"></div>
-                  <div className="relative flex items-center justify-center gap-2 text-center">
-                    <Sparkles size={18} className="text-emerald-400 animate-pulse" />
-                    <p className="text-base font-semibold text-emerald-300">
+                  <div className="relative flex items-center justify-center gap-1.5 sm:gap-2 text-center">
+                    <Sparkles size={14} className="text-emerald-400 animate-pulse flex-shrink-0 sm:w-[18px] sm:h-[18px]" />
+                    <p className="text-xs sm:text-base font-semibold text-emerald-300">
                       🎉 Order above ₹100 and get 5% OFF automatically!
                     </p>
-                    <Sparkles size={18} className="text-emerald-400 animate-pulse" />
+                    <Sparkles size={14} className="text-emerald-400 animate-pulse flex-shrink-0 sm:w-[18px] sm:h-[18px]" />
                   </div>
                 </div>
               </div>
@@ -363,7 +363,7 @@ function App() {
                 <p className="text-lg text-gray-500">No products available</p>
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
                 {filteredProducts.map((product, index) => (
                   <div
                     key={product.id}

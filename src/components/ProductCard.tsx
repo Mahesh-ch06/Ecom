@@ -52,22 +52,22 @@ export function ProductCard({ product, onAddToCart, cartItems = [], onUpdateQuan
       </div>
 
       {/* Content */}
-      <div className="relative p-5 space-y-4">
-        <div className="space-y-2">
+      <div className="relative p-3 sm:p-5 space-y-3 sm:space-y-4">
+        <div className="space-y-1.5 sm:space-y-2">
           <div className="flex items-start justify-between gap-2">
-            <h3 className="font-semibold text-white text-lg line-clamp-1 group-hover:text-emerald-400 transition-colors duration-300">
+            <h3 className="font-semibold text-white text-sm sm:text-lg line-clamp-1 group-hover:text-emerald-400 transition-colors duration-300">
               {product.name}
             </h3>
-            <span className="text-xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-500 bg-clip-text text-transparent whitespace-nowrap">
+            <span className="text-base sm:text-xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-500 bg-clip-text text-transparent whitespace-nowrap">
               ₹{product.price.toFixed(2)}
             </span>
           </div>
-          <p className="text-sm text-gray-400 line-clamp-2 leading-relaxed">
+          <p className="text-xs sm:text-sm text-gray-400 line-clamp-2 leading-relaxed">
             {product.description}
           </p>
         </div>
 
-        <div className="flex items-center justify-between pt-2">
+        <div className="flex items-center justify-between pt-1.5 sm:pt-2">
           <div className="flex items-center gap-2">
             <div className={cn(
               "w-2 h-2 rounded-full",
@@ -79,30 +79,32 @@ export function ProductCard({ product, onAddToCart, cartItems = [], onUpdateQuan
           </div>
           
           {quantityInCart > 0 ? (
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2">
               <button
                 onClick={() => onUpdateQuantity?.(product.id, quantityInCart - 1)}
                 className={cn(
-                  "p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white",
-                  "transition-all duration-300 hover:scale-110 border border-white/20"
+                  "p-1.5 sm:p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white",
+                  "transition-all duration-300 active:scale-95 sm:hover:scale-110 border border-white/20",
+                  "touch-manipulation"
                 )}
               >
-                <Minus size={16} />
+                <Minus size={14} className="sm:w-4 sm:h-4" />
               </button>
-              <span className="min-w-[2rem] text-center font-bold text-white text-lg">
+              <span className="min-w-[1.75rem] sm:min-w-[2rem] text-center font-bold text-white text-base sm:text-lg">
                 {quantityInCart}
               </span>
               <button
                 onClick={() => onUpdateQuantity?.(product.id, quantityInCart + 1)}
                 disabled={quantityInCart >= product.stock}
                 className={cn(
-                  "p-2 rounded-lg transition-all duration-300 hover:scale-110 border",
+                  "p-1.5 sm:p-2 rounded-lg transition-all duration-300 active:scale-95 sm:hover:scale-110 border",
+                  "touch-manipulation",
                   quantityInCart < product.stock
                     ? "bg-emerald-500 hover:bg-emerald-600 text-white border-emerald-400"
                     : "bg-white/5 text-gray-500 cursor-not-allowed border-white/10"
                 )}
               >
-                <Plus size={16} />
+                <Plus size={14} className="sm:w-4 sm:h-4" />
               </button>
             </div>
           ) : (
@@ -110,14 +112,14 @@ export function ProductCard({ product, onAddToCart, cartItems = [], onUpdateQuan
               onClick={() => onAddToCart(product)}
               disabled={!product.is_available || product.stock === 0}
               className={cn(
-                "flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm",
-                "transition-all duration-300 hover:scale-105",
+                "flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg sm:rounded-xl font-medium text-xs sm:text-sm",
+                "transition-all duration-300 active:scale-95 sm:hover:scale-105 touch-manipulation",
                 product.is_available && product.stock > 0
                   ? "bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white shadow-lg shadow-emerald-500/30"
                   : "bg-white/5 text-gray-500 cursor-not-allowed border border-white/10"
               )}
             >
-              <ShoppingCart size={16} />
+              <ShoppingCart size={14} className="sm:w-4 sm:h-4" />
               <span>Add</span>
             </button>
           )}
