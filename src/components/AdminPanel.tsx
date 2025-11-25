@@ -87,7 +87,7 @@ export function AdminPanel() {
     pending: { label: 'Pending', color: 'bg-yellow-100 text-yellow-800', icon: Clock },
     confirmed: { label: 'Confirmed', color: 'bg-blue-100 text-blue-800', icon: CheckCircle },
     preparing: { label: 'Preparing', color: 'bg-purple-100 text-purple-800', icon: Package },
-    ready: { label: 'Ready', color: 'bg-green-100 text-green-800', icon: CheckCircle },
+    ready: { label: 'Ready', color: 'bg-white/20 text-white', icon: CheckCircle },
     delivered: { label: 'Delivered', color: 'bg-gray-100 text-gray-800', icon: CheckCircle },
     cancelled: { label: 'Cancelled', color: 'bg-red-100 text-red-800', icon: XCircle },
   };
@@ -96,8 +96,8 @@ export function AdminPanel() {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="relative">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-500"></div>
-          <div className="absolute inset-0 rounded-full bg-emerald-500/20 blur-xl animate-pulse"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
+          <div className="absolute inset-0 rounded-full bg-white/20 blur-xl animate-pulse"></div>
         </div>
       </div>
     );
@@ -148,7 +148,7 @@ export function AdminPanel() {
             'px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-medium transition-all duration-300 whitespace-nowrap flex-shrink-0',
             'border backdrop-blur-sm active:scale-95 sm:hover:scale-105 flex items-center gap-2 text-sm sm:text-base touch-manipulation',
             activeTab === 'orders'
-              ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-white border-emerald-500/50 shadow-lg shadow-emerald-500/30'
+              ? 'bg-white text-black border-gray-300 shadow-lg shadow-white/30'
               : 'bg-white/5 text-gray-300 border-white/10 hover:bg-white/10'
           )}
         >
@@ -162,7 +162,7 @@ export function AdminPanel() {
             'px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-medium transition-all duration-300 whitespace-nowrap flex-shrink-0',
             'border backdrop-blur-sm active:scale-95 sm:hover:scale-105 flex items-center gap-2 text-sm sm:text-base touch-manipulation',
             activeTab === 'products'
-              ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-white border-emerald-500/50 shadow-lg shadow-emerald-500/30'
+              ? 'bg-white text-black border-gray-300 shadow-lg shadow-white/30'
               : 'bg-white/5 text-gray-300 border-white/10 hover:bg-white/10'
           )}
         >
@@ -176,7 +176,7 @@ export function AdminPanel() {
             'px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-medium transition-all duration-300 whitespace-nowrap flex-shrink-0',
             'border backdrop-blur-sm active:scale-95 sm:hover:scale-105 flex items-center gap-2 text-sm sm:text-base touch-manipulation',
             activeTab === 'coupons'
-              ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-white border-emerald-500/50 shadow-lg shadow-emerald-500/30'
+              ? 'bg-white text-black border-gray-300 shadow-lg shadow-white/30'
               : 'bg-white/5 text-gray-300 border-white/10 hover:bg-white/10'
           )}
         >
@@ -198,8 +198,8 @@ export function AdminPanel() {
               "px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-medium capitalize transition-all duration-300 whitespace-nowrap flex-shrink-0 text-sm sm:text-base",
               "border backdrop-blur-sm active:scale-95 sm:hover:scale-105 touch-manipulation",
               filter === status
-                ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-white border-emerald-500/50 shadow-lg shadow-emerald-500/30'
-                : 'bg-white/5 text-gray-300 border-white/10 hover:bg-white/10 hover:border-emerald-500/30'
+                ? 'bg-white text-black border-gray-300 shadow-lg shadow-white/30'
+                : 'bg-white/5 text-gray-300 border-white/10 hover:bg-white/10 hover:border-white/30'
             )}
           >
             {status === 'all' ? 'All' : status}
@@ -221,7 +221,7 @@ export function AdminPanel() {
             return (
               <div key={order.id} className={cn(
                 "glass-effect rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-white/10",
-                "hover:border-emerald-500/30 transition-all duration-300"
+                "hover:border-white/30 transition-all duration-300"
               )}>
                 <div className="flex flex-col sm:flex-row justify-between items-start gap-3 sm:gap-0 mb-4">
                   <div>
@@ -238,7 +238,7 @@ export function AdminPanel() {
                       order.status === 'pending' && 'bg-yellow-500/10 text-yellow-400 border-yellow-500/30',
                       order.status === 'confirmed' && 'bg-blue-500/10 text-blue-400 border-blue-500/30',
                       order.status === 'preparing' && 'bg-purple-500/10 text-purple-400 border-purple-500/30',
-                      order.status === 'ready' && 'bg-green-500/10 text-green-400 border-green-500/30',
+                      order.status === 'ready' && 'bg-white/10 text-white border-white/30',
                       order.status === 'delivered' && 'bg-gray-500/10 text-gray-400 border-gray-500/30',
                       order.status === 'cancelled' && 'bg-red-500/10 text-red-400 border-red-500/30'
                     )}>
@@ -284,7 +284,7 @@ export function AdminPanel() {
                         <span className="text-gray-300">
                           {item.quantity}x {item.product_name}
                         </span>
-                        <span className="font-medium text-emerald-400">
+                        <span className="font-medium text-white">
                           ₹{item.subtotal.toFixed(2)}
                         </span>
                       </div>
@@ -293,7 +293,7 @@ export function AdminPanel() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-0 border-t border-white/10 pt-3 sm:pt-4">
-                  <div className="text-lg sm:text-xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-500 bg-clip-text text-transparent">
+                  <div className="text-lg sm:text-xl font-bold text-white">
                     Total: ₹{order.total_amount.toFixed(2)}
                   </div>
                   <div className="flex gap-2 flex-wrap w-full sm:w-auto">
@@ -326,8 +326,8 @@ export function AdminPanel() {
                         onClick={() => updateOrderStatus(order.id, 'ready')}
                         className={cn(
                           "px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all duration-300 touch-manipulation",
-                          "bg-green-500/10 text-green-400 border border-green-500/30",
-                          "hover:bg-green-500/20 active:scale-95 sm:hover:scale-105"
+                          "bg-white/10 text-white border border-white/30",
+                          "hover:bg-white/20 active:scale-95 sm:hover:scale-105"
                         )}
                       >
                         Ready
@@ -378,10 +378,10 @@ export function AdminPanel() {
               onClick={() => setIsAddProductOpen(true)}
               className={cn(
                 "flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-medium text-sm sm:text-base",
-                "bg-gradient-to-r from-emerald-500 to-emerald-600",
-                "hover:from-emerald-600 hover:to-emerald-700",
-                "text-white transition-all duration-300 active:scale-95 sm:hover:scale-105 touch-manipulation",
-                "shadow-lg shadow-emerald-500/30 w-full sm:w-auto justify-center"
+                "bg-white text-black border border-gray-300",
+                "hover:bg-gray-200",
+                "transition-all duration-300 active:scale-95 sm:hover:scale-105 touch-manipulation",
+                "shadow-lg shadow-white/30 w-full sm:w-auto justify-center"
               )}
             >
               <Plus size={18} className="sm:w-5 sm:h-5" />
@@ -395,7 +395,7 @@ export function AdminPanel() {
                 key={product.id}
                 className={cn(
                   "glass-effect rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-white/10",
-                  "hover:border-emerald-500/30 transition-all duration-300"
+                  "hover:border-white/30 transition-all duration-300"
                 )}
               >
                 <div className="aspect-video rounded-xl overflow-hidden mb-4 bg-gradient-to-br from-gray-800 to-gray-900">
@@ -409,7 +409,7 @@ export function AdminPanel() {
                 <div className="space-y-2 sm:space-y-3">
                   <div className="flex justify-between items-start">
                     <h4 className="font-semibold text-white text-base sm:text-lg">{product.name}</h4>
-                    <span className="text-base sm:text-lg font-bold text-emerald-400">
+                    <span className="text-base sm:text-lg font-bold text-white">
                       ₹{product.price.toFixed(2)}
                     </span>
                   </div>
@@ -429,7 +429,7 @@ export function AdminPanel() {
                       className={cn(
                         "flex-1 py-1.5 sm:py-2 rounded-lg font-medium text-xs sm:text-sm transition-all duration-300 touch-manipulation active:scale-95",
                         product.is_available
-                          ? "bg-green-500/10 text-green-400 border border-green-500/30 hover:bg-green-500/20"
+                          ? "bg-white/10 text-white border border-white/30 hover:bg-white/20"
                           : "bg-gray-500/10 text-gray-400 border border-gray-500/30 hover:bg-gray-500/20"
                       )}
                     >

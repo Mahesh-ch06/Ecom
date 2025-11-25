@@ -97,8 +97,8 @@ export function UserOrders() {
   const statusConfig = {
     pending: { label: 'Pending', color: 'bg-yellow-500/10 text-yellow-400 border-yellow-500/30', icon: Clock },
     confirmed: { label: 'Confirmed', color: 'bg-blue-500/10 text-blue-400 border-blue-500/30', icon: CheckCircle },
-    preparing: { label: 'Preparing', color: 'bg-purple-500/10 text-purple-400 border-purple-500/30', icon: Package },
-    ready: { label: 'Ready for Pickup', color: 'bg-green-500/10 text-green-400 border-green-500/30', icon: CheckCircle },
+    preparing: { label: 'Being Prepared', color: 'bg-purple-500/10 text-purple-400 border-purple-500/30', icon: Package },
+    ready: { label: 'Ready for Pickup', color: 'bg-white/10 text-white border-white/30', icon: CheckCircle },
     delivered: { label: 'Delivered', color: 'bg-gray-500/10 text-gray-400 border-gray-500/30', icon: CheckCircle },
     cancelled: { label: 'Cancelled', color: 'bg-red-500/10 text-red-400 border-red-500/30', icon: XCircle },
   };
@@ -125,7 +125,7 @@ export function UserOrders() {
               className={cn(
                 'w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10',
                 'text-white placeholder:text-gray-500',
-                'focus:outline-none focus:ring-2 focus:ring-emerald-500/50',
+                'focus:outline-none focus:ring-2 focus:ring-white/50',
                 'transition-all duration-300'
               )}
             />
@@ -142,7 +142,7 @@ export function UserOrders() {
               className={cn(
                 'w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10',
                 'text-white placeholder:text-gray-500',
-                'focus:outline-none focus:ring-2 focus:ring-emerald-500/50',
+                'focus:outline-none focus:ring-2 focus:ring-white/50',
                 'transition-all duration-300'
               )}
             />
@@ -151,11 +151,11 @@ export function UserOrders() {
         <button
           type="submit"
           className={cn(
-            'w-full py-3 rounded-xl font-semibold text-white',
-            'bg-gradient-to-r from-emerald-500 to-emerald-600',
-            'hover:from-emerald-600 hover:to-emerald-700',
+            'w-full py-3 rounded-xl font-semibold text-black',
+            'bg-white border border-gray-300',
+            'hover:bg-gray-200',
             'transition-all duration-300 hover:scale-[1.02]',
-            'shadow-lg shadow-emerald-500/30',
+            'shadow-lg shadow-white/30',
             'flex items-center justify-center gap-2'
           )}
         >
@@ -168,8 +168,8 @@ export function UserOrders() {
       {loading ? (
         <div className="flex items-center justify-center py-20">
           <div className="relative">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-500"></div>
-            <div className="absolute inset-0 rounded-full bg-emerald-500/20 blur-xl animate-pulse"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
+            <div className="absolute inset-0 rounded-full bg-white/20 blur-xl animate-pulse"></div>
           </div>
         </div>
       ) : !hasSearched ? (
@@ -196,7 +196,7 @@ export function UserOrders() {
                 key={order.id}
                 className={cn(
                   'glass-effect rounded-2xl p-6 border border-white/10',
-                  'hover:border-emerald-500/30 transition-all duration-300',
+                  'hover:border-white/30 transition-all duration-300',
                   'animate-fade-in'
                 )}
               >
@@ -249,18 +249,18 @@ export function UserOrders() {
                   <div className="space-y-2">
                     {order.items?.map((item) => (
                       <div key={item.id} className="flex justify-between text-sm bg-white/5 p-3 rounded-lg">
-                        <span className="text-gray-300">
-                          {item.quantity}x {item.product_name}
-                        </span>
-                        <span className="font-medium text-emerald-400">
-                          ₹{item.subtotal.toFixed(2)}
-                        </span>
-                      </div>
-                    ))}
+                          <span className="text-gray-300">
+                            {item.quantity}x {item.product_name}
+                          </span>
+                          <span className="font-medium text-white">
+                            ₹{item.subtotal.toFixed(2)}
+                          </span>
+                        </div>
+                      ))}
                   </div>
                   <div className="mt-4 pt-4 border-t border-white/10 flex justify-between items-center">
                     <span className="text-gray-400">Total Amount:</span>
-                    <span className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-500 bg-clip-text text-transparent">
+                    <span className="text-2xl font-bold text-white">
                       ₹{order.total_amount.toFixed(2)}
                     </span>
                   </div>

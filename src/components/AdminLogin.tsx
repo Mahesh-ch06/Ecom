@@ -26,9 +26,9 @@ export function AdminLogin({ onLogin }: AdminLoginProps) {
         <div className="glass-effect rounded-2xl p-8 border border-white/10 animate-scale-in">
           {/* Lock Icon */}
           <div className="flex justify-center mb-6 relative">
-            <div className="absolute inset-0 bg-emerald-500/30 blur-3xl animate-pulse"></div>
-            <div className="relative bg-gradient-to-br from-emerald-500 to-emerald-600 p-4 rounded-full">
-              <Lock size={48} className="text-white" />
+            <div className="absolute inset-0 bg-white/30 blur-3xl animate-pulse"></div>
+            <div className="relative bg-white p-4 rounded-full">
+              <Lock size={48} className="text-black" />
             </div>
           </div>
 
@@ -57,7 +57,7 @@ export function AdminLogin({ onLogin }: AdminLoginProps) {
                     "bg-white/5 border border-white/10",
                     "text-white placeholder:text-gray-500",
                     "focus:outline-none focus:ring-2",
-                    "focus:ring-emerald-500/50",
+                    "focus:ring-white/50",
                     "transition-all duration-300"
                   )}
                   placeholder="Enter admin password"
@@ -78,11 +78,11 @@ export function AdminLogin({ onLogin }: AdminLoginProps) {
             <button
               type="submit"
               className={cn(
-                "w-full py-3 rounded-xl font-semibold text-white",
-                "bg-gradient-to-r from-emerald-500 to-emerald-600",
-                "hover:from-emerald-600 hover:to-emerald-700",
+                "w-full py-3 rounded-xl font-semibold text-black",
+                "bg-white border border-gray-300",
+                "hover:bg-gray-200",
                 "transition-all duration-300 hover:scale-[1.02]",
-                "shadow-lg shadow-emerald-500/30"
+                "shadow-lg shadow-white/30"
               )}
             >
               Access Admin Panel

@@ -211,8 +211,8 @@ function App() {
     return (
       <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
         <div className="relative">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-emerald-500"></div>
-          <div className="absolute inset-0 rounded-full bg-emerald-500/20 blur-xl animate-pulse"></div>
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white"></div>
+          <div className="absolute inset-0 rounded-full bg-white/20 blur-xl animate-pulse"></div>
         </div>
       </div>
     );
@@ -222,8 +222,8 @@ function App() {
     <div className="min-h-screen bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] text-white">
       {/* Ambient background effects */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px] animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] animate-pulse delay-1000"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-[120px] animate-pulse"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gray-500/5 rounded-full blur-[120px] animate-pulse delay-1000"></div>
       </div>
 
       <header className="sticky top-0 z-30 glass-effect border-b border-white/5">
@@ -231,17 +231,17 @@ function App() {
           <div className="flex items-center justify-between gap-2">
             <div className="flex items-center gap-2 sm:gap-4 animate-fade-in">
               <div className="relative">
-                <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-full"></div>
-                <div className="relative bg-gradient-to-br from-emerald-500 to-emerald-600 p-2 sm:p-3 rounded-xl sm:rounded-2xl">
-                  <Store className="text-white" size={20} />
+                <div className="absolute inset-0 bg-white/20 blur-xl rounded-full"></div>
+                <div className="relative bg-white p-2 sm:p-3 rounded-xl sm:rounded-2xl">
+                  <Store className="text-black" size={20} />
                 </div>
               </div>
               <div className="min-w-0">
-                <h1 className="text-base sm:text-2xl font-bold bg-gradient-to-r from-white via-emerald-200 to-white bg-clip-text text-transparent truncate">
+                <h1 className="text-base sm:text-2xl font-bold text-white truncate">
                   Hostel Snack Shop
                 </h1>
                 <p className="text-xs sm:text-sm text-gray-400 flex items-center gap-1">
-                  <Sparkles size={10} className="text-emerald-500 flex-shrink-0" />
+                  <Sparkles size={10} className="text-white flex-shrink-0" />
                   <span className="truncate">Order above ₹100 - Save 5%</span>
                 </p>
               </div>
@@ -291,9 +291,9 @@ function App() {
                   onClick={() => setIsCartOpen(true)}
                   className={cn(
                     "relative flex items-center gap-1 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-lg sm:rounded-xl font-medium text-sm",
-                    "bg-gradient-to-r from-emerald-500 to-emerald-600",
-                    "hover:from-emerald-600 hover:to-emerald-700",
-                    "transition-all duration-300 hover:scale-105 glow-hover"
+                    "bg-white text-black border border-gray-300",
+                    "hover:bg-gray-200",
+                    "transition-all duration-300 hover:scale-105"
                   )}
                 >
                   <CartIcon size={16} className="sm:w-[18px] sm:h-[18px]" />
@@ -327,7 +327,7 @@ function App() {
         ) : (
           <>
             <div className="mb-6 sm:mb-12 animate-fade-in">
-              <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-3 bg-gradient-to-r from-white via-emerald-200 to-white bg-clip-text text-transparent">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-3 text-white">
                 Browse Our Products
               </h2>
               <p className="text-sm sm:text-lg text-gray-400">
@@ -336,14 +336,14 @@ function App() {
               
               {/* Promotional Banner */}
               <div className="mt-4 sm:mt-6">
-                <div className="relative overflow-hidden rounded-lg sm:rounded-xl bg-gradient-to-r from-emerald-500/20 via-emerald-400/20 to-emerald-500/20 border border-emerald-500/30 p-3 sm:p-4">
+                <div className="relative overflow-hidden rounded-lg sm:rounded-xl bg-white/10 border border-white/30 p-3 sm:p-4">
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer"></div>
                   <div className="relative flex items-center justify-center gap-1.5 sm:gap-2 text-center">
-                    <Sparkles size={14} className="text-emerald-400 animate-pulse flex-shrink-0 sm:w-[18px] sm:h-[18px]" />
-                    <p className="text-xs sm:text-base font-semibold text-emerald-300">
+                    <Sparkles size={14} className="text-white animate-pulse flex-shrink-0 sm:w-[18px] sm:h-[18px]" />
+                    <p className="text-xs sm:text-base font-semibold text-white">
                       🎉 Order above ₹100 and get 5% OFF automatically!
                     </p>
-                    <Sparkles size={14} className="text-emerald-400 animate-pulse flex-shrink-0 sm:w-[18px] sm:h-[18px]" />
+                    <Sparkles size={14} className="text-white animate-pulse flex-shrink-0 sm:w-[18px] sm:h-[18px]" />
                   </div>
                 </div>
               </div>

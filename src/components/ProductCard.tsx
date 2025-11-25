@@ -18,10 +18,10 @@ export function ProductCard({ product, onAddToCart, cartItems = [], onUpdateQuan
       "bg-gradient-to-br from-white/[0.07] to-white/[0.03]",
       "border border-white/10 backdrop-blur-sm",
       "transition-all duration-500 hover:scale-[1.02]",
-      "hover:border-emerald-500/30 hover:shadow-2xl hover:shadow-emerald-500/10"
+      "hover:border-white/30 hover:shadow-2xl hover:shadow-white/10"
     )}>
       {/* Gradient overlay on hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/0 to-blue-500/0 group-hover:from-emerald-500/5 group-hover:to-blue-500/5 transition-all duration-500 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-gray-500/0 group-hover:from-white/5 group-hover:to-gray-500/5 transition-all duration-500 pointer-events-none" />
       
       {/* Image container */}
       <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800">
@@ -55,10 +55,10 @@ export function ProductCard({ product, onAddToCart, cartItems = [], onUpdateQuan
       <div className="relative p-3 sm:p-5 space-y-3 sm:space-y-4">
         <div className="space-y-1.5 sm:space-y-2">
           <div className="flex items-start justify-between gap-2">
-            <h3 className="font-semibold text-white text-sm sm:text-lg line-clamp-1 group-hover:text-emerald-400 transition-colors duration-300">
+            <h3 className="font-semibold text-white text-sm sm:text-lg line-clamp-1 group-hover:text-white transition-colors duration-300">
               {product.name}
             </h3>
-            <span className="text-base sm:text-xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-500 bg-clip-text text-transparent whitespace-nowrap">
+            <span className="text-base sm:text-xl font-bold text-white whitespace-nowrap">
               ₹{product.price.toFixed(2)}
             </span>
           </div>
@@ -71,7 +71,7 @@ export function ProductCard({ product, onAddToCart, cartItems = [], onUpdateQuan
           <div className="flex items-center gap-2">
             <div className={cn(
               "w-2 h-2 rounded-full",
-              product.stock > 5 ? "bg-emerald-500" : product.stock > 0 ? "bg-orange-500" : "bg-gray-500"
+              product.stock > 5 ? "bg-white" : product.stock > 0 ? "bg-orange-500" : "bg-gray-500"
             )} />
             <span className="text-xs text-gray-500">
               {product.stock > 0 ? `${product.stock} in stock` : 'Out of stock'}
@@ -100,7 +100,7 @@ export function ProductCard({ product, onAddToCart, cartItems = [], onUpdateQuan
                   "p-1.5 sm:p-2 rounded-lg transition-all duration-300 active:scale-95 sm:hover:scale-110 border",
                   "touch-manipulation",
                   quantityInCart < product.stock
-                    ? "bg-emerald-500 hover:bg-emerald-600 text-white border-emerald-400"
+                    ? "bg-white hover:bg-gray-200 text-black border-gray-300"
                     : "bg-white/5 text-gray-500 cursor-not-allowed border-white/10"
                 )}
               >
@@ -115,7 +115,7 @@ export function ProductCard({ product, onAddToCart, cartItems = [], onUpdateQuan
                 "flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg sm:rounded-xl font-medium text-xs sm:text-sm",
                 "transition-all duration-300 active:scale-95 sm:hover:scale-105 touch-manipulation",
                 product.is_available && product.stock > 0
-                  ? "bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white shadow-lg shadow-emerald-500/30"
+                  ? "bg-white hover:bg-gray-200 text-black border border-gray-300 shadow-lg shadow-white/30"
                   : "bg-white/5 text-gray-500 cursor-not-allowed border border-white/10"
               )}
             >
@@ -127,7 +127,7 @@ export function ProductCard({ product, onAddToCart, cartItems = [], onUpdateQuan
       </div>
 
       {/* Bottom glow effect */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
     </div>
   );
 }

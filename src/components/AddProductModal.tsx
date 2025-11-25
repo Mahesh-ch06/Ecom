@@ -151,7 +151,7 @@ export function AddProductModal({ isOpen, onClose, onProductAdded, editingProduc
                 className={cn(
                   'w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10',
                   'text-white placeholder:text-gray-500',
-                  'focus:outline-none focus:ring-2 focus:ring-emerald-500/50',
+                  'focus:outline-none focus:ring-2 focus:ring-white/50',
                   'transition-all duration-300'
                 )}
                 placeholder="e.g., Classic Potato Chips"
@@ -170,7 +170,7 @@ export function AddProductModal({ isOpen, onClose, onProductAdded, editingProduc
                 className={cn(
                   'w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10',
                   'text-white placeholder:text-gray-500 resize-none',
-                  'focus:outline-none focus:ring-2 focus:ring-emerald-500/50',
+                  'focus:outline-none focus:ring-2 focus:ring-white/50',
                   'transition-all duration-300'
                 )}
                 placeholder="Brief description of the product"
@@ -191,7 +191,7 @@ export function AddProductModal({ isOpen, onClose, onProductAdded, editingProduc
                   className={cn(
                     'w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10',
                     'text-white placeholder:text-gray-500',
-                    'focus:outline-none focus:ring-2 focus:ring-emerald-500/50',
+                    'focus:outline-none focus:ring-2 focus:ring-white/50',
                     'transition-all duration-300'
                   )}
                   placeholder="0.00"
@@ -210,7 +210,7 @@ export function AddProductModal({ isOpen, onClose, onProductAdded, editingProduc
                   className={cn(
                     'w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10',
                     'text-white placeholder:text-gray-500',
-                    'focus:outline-none focus:ring-2 focus:ring-emerald-500/50',
+                    'focus:outline-none focus:ring-2 focus:ring-white/50',
                     'transition-all duration-300'
                   )}
                   placeholder="0"
@@ -230,7 +230,7 @@ export function AddProductModal({ isOpen, onClose, onProductAdded, editingProduc
                 className={cn(
                   'w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10',
                   'text-white placeholder:text-gray-500',
-                  'focus:outline-none focus:ring-2 focus:ring-emerald-500/50',
+                  'focus:outline-none focus:ring-2 focus:ring-white/50',
                   'transition-all duration-300'
                 )}
                 placeholder="e.g., snacks, drinks, sweets"
@@ -239,7 +239,7 @@ export function AddProductModal({ isOpen, onClose, onProductAdded, editingProduc
 
             <div>
               <label className="flex items-center gap-2 text-sm font-medium text-gray-300 mb-2">
-                <ImageIcon size={16} className="text-emerald-500" />
+                <ImageIcon size={16} className="text-white" />
                 Image URL *
               </label>
               <input
@@ -250,7 +250,7 @@ export function AddProductModal({ isOpen, onClose, onProductAdded, editingProduc
                 className={cn(
                   'w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10',
                   'text-white placeholder:text-gray-500',
-                  'focus:outline-none focus:ring-2 focus:ring-emerald-500/50',
+                  'focus:outline-none focus:ring-2 focus:ring-white/50',
                   'transition-all duration-300'
                 )}
                 placeholder="https://example.com/image.jpg"
@@ -286,11 +286,11 @@ export function AddProductModal({ isOpen, onClose, onProductAdded, editingProduc
                 type="submit"
                 disabled={loading}
                 className={cn(
-                  'flex-1 py-3 rounded-xl font-semibold text-white',
-                  'bg-gradient-to-r from-emerald-500 to-emerald-600',
-                  'hover:from-emerald-600 hover:to-emerald-700',
+                  'flex-1 py-3 rounded-xl font-semibold text-black',
+                  'bg-white border border-gray-300',
+                  'hover:bg-gray-200',
                   'transition-all duration-300 hover:scale-[1.02]',
-                  'shadow-lg shadow-emerald-500/30',
+                  'shadow-lg shadow-white/30',
                   'disabled:opacity-50 disabled:cursor-not-allowed',
                   'flex items-center justify-center gap-2'
                 )}

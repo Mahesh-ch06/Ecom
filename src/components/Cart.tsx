@@ -186,7 +186,7 @@ export function Cart({
             {items.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full">
                 <div className="relative mb-6">
-                  <div className="absolute inset-0 bg-emerald-500/20 blur-3xl animate-pulse"></div>
+                  <div className="absolute inset-0 bg-white/20 blur-3xl animate-pulse"></div>
                   <div className="relative bg-white/5 p-6 sm:p-8 rounded-full border border-white/10">
                     <ShoppingBag size={48} className="text-gray-500 sm:w-16 sm:h-16" />
                   </div>
@@ -202,14 +202,14 @@ export function Cart({
                     className={cn(
                       "group relative rounded-xl sm:rounded-2xl p-3 sm:p-4",
                       "bg-white/5 border border-white/10",
-                      "hover:bg-white/[0.07] hover:border-emerald-500/30",
+                      "hover:bg-white/[0.07] hover:border-white/30",
                       "transition-all duration-300 animate-scale-in"
                     )}
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
                     {/* Glow effect on hover */}
                     <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-blue-500/10 rounded-2xl blur-xl"></div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-gray-500/10 rounded-2xl blur-xl"></div>
                     </div>
 
                     <div className="relative flex gap-3 sm:gap-4">
@@ -224,7 +224,7 @@ export function Cart({
 
                       {/* Product Info */}
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-sm sm:text-base font-semibold text-white mb-1 truncate group-hover:text-emerald-400 transition-colors">
+                        <h3 className="text-sm sm:text-base font-semibold text-white mb-1 truncate group-hover:text-white transition-colors">
                           {item.product.name}
                         </h3>
                         <p className="text-xs sm:text-sm text-gray-400 mb-2 sm:mb-3">
@@ -291,10 +291,10 @@ export function Cart({
             <div className="border-t border-white/10 p-4 sm:p-6 space-y-3 sm:space-y-4 bg-black/20">
               {/* Show discount info if SAVE5 is applied */}
               {appliedCoupon && (
-                <div className="flex items-center gap-2 p-2.5 sm:p-3 bg-emerald-500/10 border border-emerald-500/30 rounded-lg sm:rounded-xl">
-                  <CheckCircle2 size={16} className="text-emerald-400 sm:w-[18px] sm:h-[18px]" />
+                <div className="flex items-center gap-2 p-2.5 sm:p-3 bg-white/10 border border-white/30 rounded-lg sm:rounded-xl">
+                  <CheckCircle2 size={16} className="text-white sm:w-[18px] sm:h-[18px]" />
                   <div className="flex-1">
-                    <p className="text-xs sm:text-sm font-semibold text-emerald-400">{appliedCoupon.code} applied!</p>
+                    <p className="text-xs sm:text-sm font-semibold text-white">{appliedCoupon.code} applied!</p>
                     <p className="text-xs text-gray-400">{appliedCoupon.description}</p>
                   </div>
                 </div>
@@ -313,15 +313,15 @@ export function Cart({
               {/* Coupon Input Section */}
               <div className="space-y-2 sm:space-y-3">
                 <label className="flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-300">
-                  <Tag size={14} className="text-emerald-500 sm:w-4 sm:h-4" />
+                  <Tag size={14} className="text-white sm:w-4 sm:h-4" />
                   Have a coupon code?
                 </label>
                 {appliedCoupon ? (
-                  <div className="flex items-center justify-between p-2.5 sm:p-3 bg-emerald-500/10 border border-emerald-500/30 rounded-lg sm:rounded-xl">
+                  <div className="flex items-center justify-between p-2.5 sm:p-3 bg-white/10 border border-white/30 rounded-lg sm:rounded-xl">
                     <div className="flex items-center gap-2">
-                      <CheckCircle2 size={16} className="text-emerald-400 sm:w-[18px] sm:h-[18px]" />
+                      <CheckCircle2 size={16} className="text-white sm:w-[18px] sm:h-[18px]" />
                       <div>
-                        <p className="text-xs sm:text-sm font-semibold text-emerald-400">{appliedCoupon.code}</p>
+                        <p className="text-xs sm:text-sm font-semibold text-white">{appliedCoupon.code}</p>
                         <p className="text-xs text-gray-400 line-clamp-1">{appliedCoupon.description}</p>
                       </div>
                     </div>
@@ -347,7 +347,7 @@ export function Cart({
                         className={cn(
                           "flex-1 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg sm:rounded-xl bg-white/5 border",
                           "text-sm sm:text-base text-white placeholder:text-gray-500 uppercase",
-                          "focus:outline-none focus:ring-2 focus:ring-emerald-500/50",
+                          "focus:outline-none focus:ring-2 focus:ring-white/50",
                           "transition-all duration-300",
                           couponError ? "border-red-500/50" : "border-white/10"
                         )}
@@ -356,8 +356,8 @@ export function Cart({
                         onClick={handleApplyManualCoupon}
                         className={cn(
                           "px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg sm:rounded-xl font-medium text-sm sm:text-base",
-                          "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30",
-                          "hover:bg-emerald-500/30 transition-all duration-300 touch-manipulation active:scale-95"
+                          "bg-white text-black border border-gray-300",
+                          "hover:bg-gray-200 transition-all duration-300 touch-manipulation active:scale-95"
                         )}
                       >
                         Apply
@@ -377,7 +377,7 @@ export function Cart({
                   <span>₹{subtotal.toFixed(2)}</span>
                 </div>
                 {discount > 0 && (
-                  <div className="flex justify-between text-emerald-400">
+                  <div className="flex justify-between text-white">
                     <span>Discount:</span>
                     <span>-₹{discount.toFixed(2)}</span>
                   </div>
@@ -392,7 +392,7 @@ export function Cart({
 
               <div className="flex justify-between items-center text-lg sm:text-xl border-t border-white/10 pt-3 sm:pt-4">
                 <span className="text-gray-400 font-medium">Total:</span>
-                <span className="font-bold bg-gradient-to-r from-emerald-400 to-emerald-500 bg-clip-text text-transparent">
+                <span className="font-bold text-white">
                   ₹{total.toFixed(2)}
                 </span>
               </div>
@@ -400,16 +400,16 @@ export function Cart({
               <button
                 onClick={onCheckout}
                 className={cn(
-                  "w-full py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-base text-white",
-                  "bg-gradient-to-r from-emerald-500 to-emerald-600",
-                  "hover:from-emerald-600 hover:to-emerald-700",
+                  "w-full py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-base text-black",
+                  "bg-white border border-gray-300",
+                  "hover:bg-gray-200",
                   "transition-all duration-300 active:scale-[0.98] sm:hover:scale-[1.02]",
-                  "shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50",
+                  "shadow-lg shadow-white/30 hover:shadow-white/50",
                   "relative overflow-hidden group touch-manipulation"
                 )}
               >
                 <span className="relative z-10">Proceed to Checkout</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-emerald-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
             </div>
           )}

@@ -151,19 +151,19 @@ export function CouponManagement() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <Loader2 className="w-8 h-8 animate-spin text-emerald-400" />
+      <div className="flex items-center justify-center py-20">
+        <Loader2 className="w-8 h-8 animate-spin text-white" />
       </div>
     );
   }
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-bold text-white">Coupon Management</h2>
+      <div className="flex justify-between items-center">
+        <h3 className="text-2xl font-bold text-white">Coupon Management</h3>
         <button
           onClick={() => setShowForm(true)}
-          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500 text-white hover:bg-emerald-600 transition-all shadow-lg hover:shadow-emerald-500/25"
+          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white text-black border border-gray-300 hover:bg-gray-200 transition-all shadow-lg hover:shadow-white/25"
         >
           <Plus size={20} />
           Create Coupon
@@ -186,7 +186,7 @@ export function CouponManagement() {
                   required
                   value={formData.code}
                   onChange={(e) => setFormData({ ...formData, code: e.target.value.toUpperCase() })}
-                  className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
                   placeholder="SAVE20"
                 />
               </div>
@@ -200,7 +200,7 @@ export function CouponManagement() {
                   required
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                  className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
                   placeholder="20% off your order"
                 />
               </div>
@@ -212,7 +212,7 @@ export function CouponManagement() {
                 <select
                   value={formData.discount_type}
                   onChange={(e) => setFormData({ ...formData, discount_type: e.target.value as 'percentage' | 'fixed' })}
-                  className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
                 >
                   <option value="percentage">Percentage (%)</option>
                   <option value="fixed">Fixed Amount (₹)</option>
@@ -231,7 +231,7 @@ export function CouponManagement() {
                   max={formData.discount_type === 'percentage' ? '100' : undefined}
                   value={formData.discount_value}
                   onChange={(e) => setFormData({ ...formData, discount_value: parseFloat(e.target.value) })}
-                  className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
                   placeholder={formData.discount_type === 'percentage' ? '20' : '100'}
                 />
               </div>
@@ -247,7 +247,7 @@ export function CouponManagement() {
                   step="0.01"
                   value={formData.min_order_value}
                   onChange={(e) => setFormData({ ...formData, min_order_value: parseFloat(e.target.value) })}
-                  className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
                   placeholder="100"
                 />
               </div>
@@ -258,7 +258,7 @@ export function CouponManagement() {
                   id="is_active"
                   checked={formData.is_active}
                   onChange={(e) => setFormData({ ...formData, is_active: e.target.checked })}
-                  className="w-4 h-4 rounded border-white/10 bg-white/5 text-emerald-500 focus:ring-2 focus:ring-emerald-500"
+                  className="w-4 h-4 rounded border-white/10 bg-white/5 text-white focus:ring-2 focus:ring-white/50"
                 />
                 <label htmlFor="is_active" className="text-sm text-gray-300">
                   Active
@@ -268,7 +268,7 @@ export function CouponManagement() {
               <div className="flex gap-3 pt-2">
                 <button
                   type="submit"
-                  className="flex-1 px-4 py-2 rounded-lg bg-emerald-500 text-white hover:bg-emerald-600 transition-all"
+                  className="flex-1 px-4 py-2 rounded-lg bg-white text-black border border-gray-300 hover:bg-gray-200 transition-all"
                 >
                   {editingCoupon ? 'Update' : 'Create'}
                 </button>
@@ -309,7 +309,7 @@ export function CouponManagement() {
                       className={cn(
                         'px-2 py-1 text-xs rounded-full',
                         coupon.is_active
-                          ? 'bg-emerald-500/20 text-emerald-400'
+                          ? 'bg-white/20 text-white'
                           : 'bg-gray-500/20 text-gray-400'
                       )}
                     >
@@ -335,7 +335,7 @@ export function CouponManagement() {
                     title={coupon.is_active ? 'Deactivate' : 'Activate'}
                   >
                     {coupon.is_active ? (
-                      <ToggleRight className="text-emerald-400" size={20} />
+                      <ToggleRight className="text-white" size={20} />
                     ) : (
                       <ToggleLeft className="text-gray-400" size={20} />
                     )}
