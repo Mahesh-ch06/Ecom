@@ -12,7 +12,7 @@ import { UserOrders } from './components/UserOrders';
 import { cn } from './lib/utils';
 
 // Admin password - change this to your desired password
-const ADMIN_PASSWORD = 'R2A5V1E4H0T';
+const ADMIN_PASSWORD = '@Mahesh06';
 
 function App() {
   const [products, setProducts] = useState<Product[]>([]);
